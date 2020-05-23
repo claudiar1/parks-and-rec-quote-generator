@@ -1,2 +1,3 @@
-# parks-and-rec-quote-generator
- Randomly generates quotes from Parks and Recreation.
+# Parks and Rec Quote Generator
+
+Randomly generates quotes from Parks and Recreation.
