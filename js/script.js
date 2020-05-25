@@ -48,7 +48,7 @@ let quotes = [
     epNum: `Season 5, Episode 21`
   },
   {
-    quote: `I'm allergic to sushi. Every time I eat more than 80 pieces, I throw up.`,
+    quote: `I'm allergic to sushi. Every time I eat more than 80 sushis, I barf.`,
     source: `Andy Dwyer`,
     epName: `"Ron and Diane"`,
     epNum: `Season 5, Episode 9`
@@ -56,11 +56,64 @@ let quotes = [
   {
     quote: `Treat yo'self!`,
     source: `Tom Haverford and Donna Meagle`
+  },
+  {
+    quote: `I have no idea what I'm doing, but I know I'm doing it really, really well.`,
+    source: `Andy Dwyer`
+  },
+  {
+    quote: `Just give me all the bacon and eggs you have. Wait, wait. I worry what you just heard was, "give me a lot of bacon and eggs." What I said was, "give me all the bacon and eggs you have." Do you understand?`,
+    source: `Ron Swanson`
+  },
+  {
+    quote: `I made my money the old fasioned way - I got run over by a Lexus.`,
+    source: `Jean-Ralphio`
+  },
+  {
+    quote: `One time my refrigerator stopped working. I didn't know what to do. I just moved.`,
+    source: `Tom Haverford`
+  },
+  {
+    quote: `Time is money, money is power, power is pizza, pizza is knowledge. Let's go!`,
+    source: `April Ludgate`
+  },
+  {
+    quote: `I'll have a glass of your most expensive red wine mixed with a glass of your cheapest white wine served in a dog bowl. Silly straws all around, please.`,
+    source: `April Ludgate`
+  },
+  {
+    quote: `I tried to make ramen in the coffee pot and I broke everything.`,
+    source: `Andy Dwyer`,
+    epName: `"Comeback Kid"`,
+    epNum: `Season 4`
+  },
+  {
+    quote: `April is the best. But she's 20. When April was born, I was already in the third grade, which means if we were friends back then, I would have been hanging out with a baby. I don't know anything about infant care. My god, I could have killed her.`,
+    source: `Andy Dwyer`
+  },
+  {
+    quote: `When I get bummed out, I take my shirt off because the bad feelings make me feel sweaty.`,
+    source: `Andy Dwyer`
+  },
+  {
+    quote: `Did you know that the food you eat becomes energy? Boom! That's spaghetti. Nachos. That's a cookie.`,
+    source: `Andy Dwyer`
+  },
+  {
+    quote: `I once ate a Twix with the wrapper on it and I've never seen the wrapper come out.`,
+    source: `Andy Dwyer`
   }
 ];
 
+let previousNumber;
+
 function getRandomQuote() {
   let randomNumber = Math.floor(Math.random() * quotes.length);
+  while (previousNumber === randomNumber) {
+    randomNumber = Math.floor(Math.random() * quotes.length);
+    console.log(randomNumber);
+  }
+  previousNumber = randomNumber;
   let selectedQuote = quotes[randomNumber];
   return selectedQuote;
 }
@@ -77,11 +130,6 @@ function printQuote() {
   myString += `</p>`;
   document.getElementById("quote-box").innerHTML = myString;
 }
-
-/***
- * click event listener for the print quote button
- * DO NOT CHANGE THE CODE BELOW!!
- ***/
 
 document
   .getElementById("load-quote")
