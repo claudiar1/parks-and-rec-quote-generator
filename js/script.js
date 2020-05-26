@@ -55,7 +55,8 @@ let quotes = [
   },
   {
     quote: `Treat yo'self!`,
-    source: `Tom Haverford and Donna Meagle`
+    source: `Tom Haverford and Donna Meagle`,
+    tag: `Classic Quote`
   },
   {
     quote: `I have no idea what I'm doing, but I know I'm doing it really, really well.`,
@@ -147,10 +148,20 @@ function printQuote() {
   if (randomQuote.epNum) {
     myString += `<span class="year">${randomQuote.epNum}</span>`;
   }
+  if (randomQuote.tag) {
+    myString += `, ${randomQuote.tag}`;
+  }
   myString += `</p>`;
+  // code adapted from w3schools: https://www.w3schools.com/jsref/prop_style_backgroundcolor.asp:
   document.body.style.backgroundColor = getRandomColor();
   document.getElementById("quote-box").innerHTML = myString;
 }
+
+/**
+ *
+ * Auto refreshes the page and renders a new random quote every 10 seconds.
+ */
+setInterval(printQuote, 10000);
 
 document
   .getElementById("load-quote")
