@@ -107,17 +107,37 @@ let quotes = [
 
 let previousNumber;
 
+/**
+ * Accesses and returns an object from the quotes array at random. Will not return the same object twice in a row.
+ *
+ * @returns {object} an object from the quotes array.
+ */
 function getRandomQuote() {
   let randomNumber = Math.floor(Math.random() * quotes.length);
   while (previousNumber === randomNumber) {
     randomNumber = Math.floor(Math.random() * quotes.length);
-    console.log(randomNumber);
   }
   previousNumber = randomNumber;
   let selectedQuote = quotes[randomNumber];
   return selectedQuote;
 }
 
+/** Generates a random rbg color to be used as a background color.
+ *
+ * @returns {string} an rgb encoded color string.
+ */
+function getRandomColor() {
+  let red = Math.floor(Math.random() * 256);
+  let green = Math.floor(Math.random() * 256);
+  let blue = Math.floor(Math.random() * 256);
+  let randomColor = `rgb(${red}, ${green}, ${blue})`;
+  return randomColor;
+}
+
+/**
+ *
+ * Renders a randomly generated quotes to the page and updates the background color to a randomly generated rgb color.
+ */
 function printQuote() {
   let randomQuote = getRandomQuote();
   let myString = `<p class="quote">${randomQuote.quote}</p> <p class="source">${randomQuote.source}`;
@@ -128,6 +148,7 @@ function printQuote() {
     myString += `<span class="year">${randomQuote.epNum}</span>`;
   }
   myString += `</p>`;
+  document.body.style.backgroundColor = getRandomColor();
   document.getElementById("quote-box").innerHTML = myString;
 }
 
